@@ -6,4 +6,4 @@ Output files from QIIME2 including table.qza, rooted-tree.qza, and taxonomy.qza 
 
 1. Decontam.R
 2. Microeco.R
-3. Mediation.R
+3. Mediation_Analysis.R
