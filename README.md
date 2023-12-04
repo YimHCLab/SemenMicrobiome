@@ -5,5 +5,5 @@ An R script for Quantitative Microbiome Profiling (QMP) as described in "DEFB119
 Output files from QIIME2 including table.qza, rooted-tree.qza, and taxonomy.qza were run through the following R Script in the following order:
 
 1. Decontam.R
-2. Microeco.R
+2. QMP_Microeco_analysis.R
 3. Mediation_Analysis.R
