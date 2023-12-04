@@ -1,0 +1,92 @@
+sample-ID	Age	Fertility	Diagnosis	Diagnosis2	Partner_Age	IVF_type	Normal_Fertilization_Rate	Semen_Volume	Sperm_concentration	Sperm_motility	Progressive_Motile	Morphology	DEFB119	Group	Sample_or_Control
+01S001	33	Infertile	Teratozoospermia	Teratozoospermia	33	IVF	100.0	4.9	27.5	53.0	48.0	3.0	437.4	G2	True Sample
+02S003	36	Infertile	Teratozoospermia	Teratozoospermia	37	IVF	64.3	3.0	38.0	60.0	52.0	3.0	103.5	G2	True Sample
+03S005	38	Control	Normozoospermia	Normozoospermia	38	IVF	77.7	2.0	62.4	55.0	44.0	4.5	687.0	G1	True Sample
+04S007	34	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	33	ICSI	100.0	1.8	11.8	53.0	49.0	1.0	103.5	G2	True Sample
+05S011	39	Control	Normozoospermia	Normozoospermia	41	IVF	100.0	1.5	26.2	69.0	62.0	5.4	567.1	G1	True Sample
+06S013	36	Infertile	Teratozoospermia	Teratozoospermia	41	IVF	85.7	2.4	100.8	48.0	44.0	2.0	278.0	G2	True Sample
+07S014	39	Infertile	Asthenozoospermia	Other	42	IVF	100.0	2.3	87.3	37.0	35.0	4.4	242.2	G2	True Sample
+08S016	42	Infertile	Asthenoteratozoospermia	Asthenoteratozoospermia	67	ICSI	0.0	0.5	74.6	15.0	12.0	2.0	101.4	G2	True Sample
+09S017	34	Control	Normozoospermia	Normozoospermia	43	IVF	92.3	2.1	187.5	57.0	53.0	4.0	109.6	G1	True Sample
+10S018	39	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	39	ICSI	57.1	2.0	10.0	22.0	17.0	1.0	117.5	G2	True Sample
+11S019	38	Control	Normozoospermia	Normozoospermia				3.5	48.3	46.0	43.0	5.4	303.4	G1	True Sample
+12S021	42	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	33	ICSI	0.0	1.7	4.4	55.0	52.0	2.0	402.7	G2	True Sample
+13S022	39	Infertile	Teratozoospermia	Teratozoospermia	41	IVF	0.0	2.3	51.0	54.0	47.0	2.5	304.8	G2	True Sample
+14S023	34	Control	Normozoospermia	Normozoospermia	33	IVF	75.0	1.7	65.3	53.0	49.0	4.2	232.3	G1	True Sample
+15S024	38	Infertile	Teratozoospermia	Teratozoospermia	37	IVF	71.4	2.2	127.5	59.0	54.0	2.8	302.7	G2	True Sample
+16S025	37	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	55	ICSI	80.0	3.7	4.6	51.0	41.0	2.3	655.5	G2	True Sample
+17S028	39	Control	Normozoospermia	Normozoospermia	39	IVF	60.0	2.8	175.0	58.0	55.0	5.0	213.5	G1	True Sample
+18S031	37	Control	Normozoospermia	Normozoospermia	36	IVF	80.0	2.8	18.0	48.0	43.0	4.9	222.9	G1	True Sample
+19S037	35	Infertile	Teratozoospermia	Teratozoospermia	39	IVF	80.0	4.0	38.7	56.0	51.0	2.0	129.1	G2	True Sample
+20S038	42	Infertile	Teratozoospermia	Teratozoospermia	43	ICSI	100.0	2.7	61.7	48.0	44.0	2.0	217.9	G2	True Sample
+21S041	32	Infertile	Teratozoospermia	Teratozoospermia	33	IVF	87.5	2.8	17.7	45.0	40.0	3.5	191.2	G2	True Sample
+22S046	39	Control	Normozoospermia	Normozoospermia	41	IVF	100.0	1.2	101.0	52.0	45.0	5.2	74.2	G1	True Sample
+23S050	34	Infertile	Teratozoospermia	Teratozoospermia	34	IVF	85.7	3.0	15.5	52.0	45.0	2.5	223.5	G2	True Sample
+24S052	39	Infertile	Asthenoteratozoospermia	Asthenoteratozoospermia	39	ICSI	44.4	0.5	50.4	30.0	13.0	1.0	190.6	G2	True Sample
+25S053	37	Control	Normozoospermia	Normozoospermia	80	IVF	80.0	2.2	103.8	44.0	40.0	4.9	297.5	G1	True Sample
+26S054	38	Control	Normozoospermia	Normozoospermia	38	IVF	92.8	2.5	62.0	49.0	48.0	10.0	120.0	G1	True Sample
+27S056	35	Control	Normozoospermia	Normozoospermia	38	IVF	100.0	3.1	66.8	57.0	52.0	4.3	66.6	G1	True Sample
+28S062	36	Control	Normozoospermia	Normozoospermia	37	IVF	75.0	1.9	75.7	62.0	60.0	9.2	103.2	G1	True Sample
+29S064	41	Infertile	Oligoasthenozoospermia	Other	44	ICSI	57.1	2.7	12.0	20.0	15.0		104.3	G2	True Sample
+30S065	39	Control	Normozoospermia	Normozoospermia	45	IVF	100.0	3.6	24.9	68.0	62.0	5.7	102.1	G1	True Sample
+31S068	32	Infertile	Teratozoospermia	Teratozoospermia	36	IVF	80.0	1.4	53.0	58.0	56.0	3.0	193.3	G2	True Sample
+32S069	36	Control	Normozoospermia	Normozoospermia	37	IVF	50.0	3.6	155.8	56.0	52.0	5.4	301.8	G1	True Sample
+33S070	37	Infertile	Teratozoospermia	Teratozoospermia	39	IVF	60.0	3.0	25.8	59.0	53.0	3.4	151.5	G2	True Sample
+34S071	37	Control	Normozoospermia	Normozoospermia	40	IVF	60.0	3.0	38.3	70.0	61.0	4.5	838.1	G1	True Sample
+35S073	38	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	40	ICSI	N/A	3.0	10.2	41.0	39.0	0.0	251.2	G2	True Sample
+36S074	34	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	35	ICSI	50.0	3.6	2.4	36.0	27.0	1.0	2299.0	G3	True Sample
+37S075	35	Infertile	Teratozoospermia	Teratozoospermia	39	IVF	60.0		227.0	69.0	69.0	2.0	112.3	G2	True Sample
+38S078	31	Infertile	Teratozoospermia	Teratozoospermia	36	IVF	100.0	2.0	22.3	48.0	38.0	3.3	2260.9	G3	True Sample
+39S084	30	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	40	ICSI	70.0	7.5	4.8	36.0	30.0	1.0	3070.7	G3	True Sample
+40S085	38	Infertile	Teratozoospermia	Teratozoospermia	38	ICSI	87.5	2.9	21.8	39.0	35.0	3.2	270.8	G2	True Sample
+41S086	34	Infertile	Teratozoospermia	Teratozoospermia	38	IVF	62.5	1.8	46.8	60.0	58.0	3.0	139.3	G2	True Sample
+42S087	35	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	40	ICSI	100.0	2.6	2.3	31.0	27.0	3.0	200.7	G2	True Sample
+43S088	38	Infertile	Teratozoospermia	Teratozoospermia	38	ICSI	50.0	2.8	20.8	47.0	42.0	2.3	294.0	G2	True Sample
+44S089	36	Control	Normozoospermia	Normozoospermia	38	IVF	68.4	4.2	80.5	50.0	44.0	4.1	315.3	G1	True Sample
+45S090	37	Infertile	Oligozoospermia	Other	40	ICSI	50.0	5.6	4.3	47.0	44.0	4.0	218.1	G2	True Sample
+46S091	40	Control	Normozoospermia	Normozoospermia	38	IVF	60.0	2.1	68.0	60.0	56.0	5.2	246.7	G1	True Sample
+48S094	35	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	37	ICSI	100.0	1.4	1.7	38.0	34.0	0.0	369.2	G2	True Sample
+49S095	32	Infertile	Oligozoospermia	Other	36	IVF	80.0	3.2	6.8	51.0	47.0	4.0	100.3	G2	True Sample
+50S096	37	Control	Normozoospermia	Normozoospermia	32	ICSI	100.0		30.0	70.0	70.0	73.0	78.1	G1	True Sample
+51S097	33	Infertile	Asthenoteratozoospermia	Asthenoteratozoospermia	58	IVF	42.9	1.0	87.0	10.0	6.0	1.8	892.0	G2	True Sample
+52S098	33	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	34	ICSI	62.5	4.1	4.4	31.0	27.0	1.5	566.1	G2	True Sample
+53S099	38	Control	Normozoospermia	Normozoospermia	47	IVF	57.1	3.7	62.3	61.0	57.0	5.1	75.3	G1	True Sample
+54S101	39	Control	Normozoospermia	Normozoospermia	41	IVF	66.7	6.0	43.5	46.0	44.0	7.0	210.7	G1	True Sample
+55S104	33	Control	Normozoospermia	Normozoospermia	33	IVF	80.0	1.2	81.8	57.0	51.0	4.4	353.7	G1	True Sample
+56S105	40	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	35	ICSI	60.0	3.8	2.7	37.0	35.0	1.3	962.6	G3	True Sample
+57S106	-	Infertile	Teratozoospermia	Teratozoospermia	42	IVF	100.0		111.0	61.0	61.0	3.0	40.2	G2	True Sample
+58S107	37	Control	Normozoospermia	Normozoospermia	38	IVF	71.4	6.1	59.3	58.0	54.0	5.7	541.6	G1	True Sample
+59S108	39	Control	Normozoospermia	Normozoospermia	45	ICSI	85.7	-	35.0	50.0		5.4	854.8	G1	True Sample
+60S112	39	Infertile	Teratozoospermia	Teratozoospermia	54	ICSI	58.3	1.5	30.5	43.0	38.0	1.5	205.5	G2	True Sample
+61S113	27	Control	Normozoospermia	Normozoospermia	30	IVF	65.2	2.7	36.5	57.0	54.0	4.8	201.2	G1	True Sample
+62S115	37	Infertile	Asthenoteratozoospermia	Asthenoteratozoospermia	38	ICSI	83.3	2.4	18.5	30.0	24.0	1.5	154.0	G2	True Sample
+63S118	40	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	42	ICSI	11.1	1.2	2.3	31.0	24.0	2.0	800.7	G2	True Sample
+64S119	30	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	30	ICSI	25.0	3.0	13.1	59.0	51.0	2.3	157.5	G2	True Sample
+65S120	34	Control	Normozoospermia	Normozoospermia	37	IVF	66.7	1.2	35.2	45.0	39.0	5.3	216.4	G1	True Sample
+66S125	36	Infertile	Teratozoospermia	Teratozoospermia	33	ICSI	100.0	4.4	25.7	58.0	55.0	1.0	1163.5	G3	True Sample
+67S128	38	Control	Normozoospermia	Normozoospermia	38	ICSI	50.0	3.0	63.4	43.0	36.0	4.0	434.0	G1	True Sample
+68S129	44	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	39	ICSI	85.7	0.2	11.0	38.0	38.0	1.0	160.5	G2	True Sample
+69S130	31	Infertile	Teratozoospermia	Teratozoospermia	35	ICSI	83.3	2.3	19.3	50.0	46.0	1.5	146.7	G2	True Sample
+70S134	38	Infertile	Teratozoospermia	Teratozoospermia	36	IVF	75.0	1.5	126.0	58.0	58.0	3.0	302.3	G2	True Sample
+71S135	37	Infertile	Teratozoospermia	Teratozoospermia	42	IVF	55.6	2.7	71.5	50.0	45.0	2.9	127.2	G2	True Sample
+72S136	35	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	44	ICSI	100.0	3.0	12.1	26.0	21.0	1.0	181.2	G2	True Sample
+73S138	36	Control	Normozoospermia	Normozoospermia	35	ICSI	94.4	4.6	35.3	39.0	37.0	4.5	92.7	G1	True Sample
+74S139	38	Infertile	Oligoasthenoteratozoospermia	Oligoasthenoteratozoospermia	40	ICSI	58.3	2.3	8.4	36.0	5.0	1.3	647.4	G2	True Sample
+75S140	38	Control	Normozoospermia	Normozoospermia	44	IVF	40.0						407.7	G1	True Sample
+76S141	38	Infertile	Asthenoteratozoospermia	Asthenoteratozoospermia	42	ICSI	81.8	1.3	28.9	33.0	29.0	1.0	136.7	G2	True Sample
+77S142	35	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	36	IVF	34.8	2.1	12.5	54.0	48.0	3.1	193.8	G2	True Sample
+78S145	37	Infertile	Asthenoteratozoospermia	Asthenoteratozoospermia	35	IVF	85.71	2.9	34.5	48.0	4.0	2.8	423.1	G2	True Sample
+79S147	31	Infertile	Hypospermia	Other	32	ICSI	100.0						107.4	G2	True Sample
+80S148	39	Infertile	Teratozoospermia	Teratozoospermia	42	IVF	70.0	5.2	19.3	60.0	56.0	3.5	269.9	G2	True Sample
+81S150	33	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	33	ICSI	83.3	1.9	11.4	61.0	58.0	1.0	90.9	G2	True Sample
+82S151	39	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	35	ICSI	62.5	4.1	8.6	49.0	47.0	2.0	168.7	G2	True Sample
+83S154	33	Infertile	Teratozoospermia	Teratozoospermia	39	ICSI	66.7	4.2	26.0	57.0	53.0	1.3	265.0	G2	True Sample
+84S156	32	Infertile	Teratozoospermia	Teratozoospermia	34	ICSI	64.3	2.2	21.8	43.0	40.0	1.0	111.0	G2	True Sample
+85S157	35	Control	Normozoospermia	Normozoospermia	39	IVF	66.7	3.0	23.0	64.0	58.0	4.0	260.5	G1	True Sample
+86S158	34	Infertile	Teratozoospermia	Teratozoospermia	40	ICSI	77.8	4.3	96.5	60.0	57.0	1.0	117.1	G2	True Sample
+87S159	25	Infertile	Teratozoospermia	Teratozoospermia	34	ICSI	46.2	5.8	16.7	61.0	55.0	3.2	92.7	G2	True Sample
+88S160	30	Infertile	Oligoteratozoospermia	Oligoteratozoospermia	33	ICSI	80.0	1.0	7.6	45.0	32.0	2.5	309.7	G2	True Sample
+90S039	36	Control	Normozoospermia	Normozoospermia	37	ICSI	100.0	4.2	25.1	63.0	58.0	4.5	210.1	G1	True Sample
+S13		neg	neg	neg		neg								neg	Control Sample
+S1		neg	neg	neg		neg								neg	Control Sample
+SNTC		neg	neg	neg		neg								neg	Control Sample
