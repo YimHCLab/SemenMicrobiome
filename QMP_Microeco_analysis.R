@@ -153,6 +153,9 @@ class(Oct23_16S.056.a.micro.c$beta_diversity)
 Oct23_16S.056.a.micro.c$save_betadiv(dirpath = "beta_diversity")
 
 ##use 10 Phyla with the highest abundance====
+t1 <- trans_abund$new(dataset = Oct23_16S.056.a.micro.c, taxrank = "Phylum",
+                      ntaxa = 10)
+
 t1$plot_heatmap(facet = "Fertility", 
            xtext_keep = FALSE, withmargin = FALSE,
            color_values = rev(RColorBrewer::brewer.pal(n = 10, name = "RdYlBu")))+
