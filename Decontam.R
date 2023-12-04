@@ -78,7 +78,7 @@ Oct23_16S <-qza_to_phyloseq(
 )
 Oct23_16S
 
-#omitting sample 81S150
+#omitting sample 81S150 because of the missing CFU data
 #https://github.com/joey711/phyloseq/issues/618
 
 Oct23_16S.f <- subset_samples(Oct23_16S, sample_names(Oct23_16S) != "81S150")
