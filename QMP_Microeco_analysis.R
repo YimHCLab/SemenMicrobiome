@@ -161,14 +161,6 @@ t1$plot_heatmap(facet = "Fertility",
            color_values = rev(RColorBrewer::brewer.pal(n = 10, name = "RdYlBu")))+
   labs(fill = "CFU in 300ul Seminal Fluid")
 
-##show 40 taxa at Genus level====
-t2 <- trans_abund$new(dataset = Oct23_16S.056.a.micro.c, taxrank = "Genus", ntaxa = 40)
-t2$plot_heatmap(facet = "Diagnosis2", xtext_keep = FALSE, withmargin = FALSE)
-
-#Control vs Fertility
-t2$plot_heatmap(facet = "Fertility", xtext_keep = FALSE, withmargin = FALSE) +
-  labs(fill = "CFU")
-
 ##Diversity class====
 ##Alpha Diversity====
 
