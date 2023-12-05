@@ -528,14 +528,25 @@ g6$plot_ordination(plot_color = "Group", plot_shape = "Group",
                    plot_type = c("point", "ellipse"))+ 
   labs(title = "Bray Curtis")
 
-#Permanova
+#Permanova Overall
 g6$cal_manova(
   manova_all = TRUE,
   manova_set = NULL,
   group = NULL,
   p_adjust_method = "fdr"
 )
-g6$res_manova                                      
+g6$res_manova  
+
+
+#Permanova pairwise
+g6$cal_manova(
+  manova_all = FALSE,
+  manova_set = NULL,
+  group = NULL,
+  p_adjust_method = "fdr"
+)
+g6$res_manova     
+                                      
 
 #Permutation Test
 g6$cal_betadisper()
@@ -551,7 +562,7 @@ g6.jaccard$plot_ordination(plot_color = "Group", plot_shape = "Group",
                            plot_type = c("point", "ellipse"))+
   labs(title = "Jaccard")
 
-#Permanova
+#Permanova Overall
 g6.jaccard$cal_manova(
   manova_all = TRUE,
   manova_set = NULL,
@@ -559,6 +570,15 @@ g6.jaccard$cal_manova(
   p_adjust_method = "fdr"
 )
 g6.jaccard$res_manova  
+
+#Permanova Pairwise
+g6.jaccard$cal_manova(
+  manova_all = FALSE,
+  manova_set = NULL,
+  group = NULL,
+  p_adjust_method = "fdr"
+)
+g6.jaccard$res_manova 
                                       
 #Permutation Test
 g6.jaccard$cal_betadisper()
@@ -574,9 +594,18 @@ g6.unwei_unifrac$plot_ordination(plot_color = "Group", plot_shape = "Group",
                                  plot_type = c("point", "ellipse"))+
   labs(title = "Unweighted Unifrac")
 
-#Permanova
+#Permanova Overall
 g6.unwei_unifrac$cal_manova(
   manova_all = TRUE,
+  manova_set = NULL,
+  group = NULL,
+  p_adjust_method = "fdr"
+)
+g6.unwei_unifrac$res_manova  
+
+#Permanova Pairwise
+g6.unwei_unifrac$cal_manova(
+  manova_all = FALSE,
   manova_set = NULL,
   group = NULL,
   p_adjust_method = "fdr"
@@ -598,9 +627,19 @@ g6.wei_unifrac$plot_ordination(plot_color = "Group", plot_shape = "Group",
   labs(title = "Weighted Unifrac")
 
 
-#Permanova
+#Permanova Overall
 g6.wei_unifrac$cal_manova(
   manova_all = TRUE,
+  manova_set = NULL,
+  group = NULL,
+  p_adjust_method = "fdr"
+)
+g6.wei_unifrac$res_manova  
+
+
+#Permanova pairwise
+g6.wei_unifrac$cal_manova(
+  manova_all = FALSE,
   manova_set = NULL,
   group = NULL,
   p_adjust_method = "fdr"
