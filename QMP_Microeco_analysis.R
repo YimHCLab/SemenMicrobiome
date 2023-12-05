@@ -686,6 +686,22 @@ g9.G1$save_network(filepath = "network_G1.gexf")
 # calculate network attributes
 g9.G1$cal_network_attr()
 g9.G1$res_network_attr                                      
+
+##Subgrouping the dataset----
+###G1----
+G1 <- clone(Oct23_16S.056.a.micro2.c)
+
+G1$sample_table <- subset(G1$sample_table, Group == "G1")
+G1$tidy_dataset()
+###G2----
+G2 <- clone(Oct23_16S.056.a.micro2.c)
+G2$sample_table <- subset(G2$sample_table, Group == "G2")
+G2$tidy_dataset()
+###G3----
+G3 <- clone(Oct23_16S.056.a.micro2.c)
+G3$sample_table <- subset(G3$sample_table, Group == "G3")
+G3$tidy_dataset()
+
                                       
 ##Network====
 ###Co-abundance----
