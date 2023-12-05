@@ -193,11 +193,21 @@ t5.f$plot_alpha(measure = "Simpson", shape = "Fertility")
 t6.f <- trans_beta$new(dataset = Oct23_16S.056.a.micro.c, group = "Fertility", measure = "bray")
 t6.f$cal_ordination(ordination = "PCoA")
 class(t6.f$res_ordination)
-t6.f$plot_ordination(plot_color = "Fertility", plot_shape = "Fertility", plot_type = c("point", "ellipse"))
+t6.f$plot_ordination(plot_color = "Fertility", plot_shape = "Fertility", plot_type = c("point", "ellipse"))+
+  labs(title = "Bray Curtis")
 
-#Permanova
+#Permanova Overall
 t6.f$cal_manova(
   manova_all = TRUE,
+  manova_set = NULL,
+  group = NULL,
+  p_adjust_method = "fdr"
+)
+t6.f$res_manova
+
+#Permanova pairwise
+t6.f$cal_manova(
+  manova_all = FALSE,
   manova_set = NULL,
   group = NULL,
   p_adjust_method = "fdr"
@@ -214,10 +224,21 @@ t6.jaccard.f <- trans_beta$new(dataset = Oct23_16S.056.a.micro.c, group = "Ferti
 
 t6.jaccard.f$cal_ordination(ordination = "PCoA")
 class(t6.jaccard.f$res_ordination)
-t6.jaccard.f$plot_ordination(plot_color = "Fertility", plot_shape = "Fertility", plot_type = c("point", "ellipse"))
+t6.jaccard.f$plot_ordination(plot_color = "Fertility", plot_shape = "Fertility", plot_type = c("point", "ellipse"))+
+  labs(title = "Jaccard")
 
+#Permanova Overall
 t6.jaccard.f$cal_manova(
   manova_all = TRUE,
+  manova_set = NULL,
+  group = NULL,
+  p_adjust_method = "fdr"
+)
+t6.jaccard.f$res_manova
+
+#Permanova pairwise
+t6.jaccard.f$cal_manova(
+  manova_all = FALSE,
   manova_set = NULL,
   group = NULL,
   p_adjust_method = "fdr"
@@ -235,11 +256,21 @@ t6.unwei_unifrac.f <- trans_beta$new(dataset = Oct23_16S.056.a.micro.c, group = 
 
 t6.unwei_unifrac.f$cal_ordination(ordination = "PCoA")
 class(t6.unwei_unifrac.f$res_ordination)
-t6.unwei_unifrac.f$plot_ordination(plot_color = "Fertility", plot_shape = "Fertility", plot_type = c("point", "ellipse"))
+t6.unwei_unifrac.f$plot_ordination(plot_color = "Fertility", plot_shape = "Fertility", plot_type = c("point", "ellipse"))+
+                                       labs(title = "Unweighted Unifrac")
 
-#Permanova
+#Permanova Overall
 t6.unwei_unifrac.f$cal_manova(
   manova_all = TRUE,
+  manova_set = NULL,
+  group = NULL,
+  p_adjust_method = "fdr"
+)
+t6.unwei_unifrac.f$res_manova
+
+#Permanova Pairwise
+t6.unwei_unifrac.f$cal_manova(
+  manova_all = FALSE,
   manova_set = NULL,
   group = NULL,
   p_adjust_method = "fdr"
@@ -257,11 +288,21 @@ t6.wei_unifrac.f <- trans_beta$new(dataset = Oct23_16S.056.a.micro.c, group = "F
 
 t6.wei_unifrac.f$cal_ordination(ordination = "PCoA")
 class(t6.wei_unifrac.f$res_ordination)
-t6.wei_unifrac.f$plot_ordination(plot_color = "Fertility", plot_shape = "Fertility", plot_type = c("point", "ellipse"))
+t6.wei_unifrac.f$plot_ordination(plot_color = "Fertility", plot_shape = "Fertility", plot_type = c("point", "ellipse"))+
+                                      labs(title = "Weighted Unifrac")
 
-#Permanova
+#Permanova Overall
 t6.wei_unifrac.f$cal_manova(
   manova_all = TRUE,
+  manova_set = NULL,
+  group = NULL,
+  p_adjust_method = "fdr"
+)
+t6.wei_unifrac.f$res_manova
+
+#Permanova pairwise
+t6.wei_unifrac.f$cal_manova(
+  manova_all = FALSE,
   manova_set = NULL,
   group = NULL,
   p_adjust_method = "fdr"
