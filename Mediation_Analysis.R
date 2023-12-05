@@ -55,6 +55,10 @@ sum(m.genus.o[,225] > 0) <= 1
 #for @ column, similar as above
 s <- as.data.frame(colSums(m.genus.o !=1))
 
+
+##_________________________#####
+#DEFB119 as Treatment###########
+
 #Microbiome Analysis - Control Sample----
 m.genus.o2 <- m.genus.o[which(m.genus.o$Fertility=='Control'),]
 
