@@ -34,7 +34,11 @@ qqline(metadata5$CFU)
 
 # Mann-Whitney U test
 
-ggboxplot(metadata5, x = "Fertility", y = "CFU", color = "Fertility", 
+metadata6 <- metadata5
+
+metadata6$Fertility <- factor(metadata6$Fertility, levels = c("Control", "Infertile"))
+
+ggboxplot(metadata6, x = "Fertility", y = "CFU", color = "Fertility", 
           add = "jitter", ylab = "Log10(CFU in 300ul seminal fluid)",
           title = "Estimated CFU of seminal microbiome") +
   scale_y_continuous(trans = "log10") +
