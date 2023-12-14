@@ -1,17 +1,17 @@
 Quantitative Microbiome Profiling (QMP) of Seminal Fluid Microbiome
+-
 
 This analysis is divided into 2 parts:
 
-Part 1 - Raw sequences were analyzed using https://github.com/biofuture/microbiome_singulairty_version
+Part 1 - Raw sequences Analysis using QIIME2
+------------------------------------------------------------------------------------------------------
+The pipeline for analysing the raw sequences could be found at https://github.com/biofuture/microbiome_singulairty_version
 
-Part 2 - The output from Part 1 were further analyzed using Rstudio
----------------------------------------------------------------------------------
-Part 1:
-
-
+Linux Scripts could be found in file:
 
 
-Part 2:
+Part 2 - The output from Part 1 was further analyzed using Rstudio
+-------------------------------------------------------------------------------------------------------
 
 R scripts for Decontamination, Quantitative Microbiome Profiling (QMP) and Mediation Analyses as described in "DEFB119 stratifies dysbiosis with distorted networks in the seminal microbiome associated with male infertility" manuscript.
 
