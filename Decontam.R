@@ -34,25 +34,13 @@ qqline(metadata5$CFU)
 
 # Mann-Whitney U test
 
-ggplot(data = metadata5, aes(x = Fertility, y = CFU, fill = Fertility)) +
-  geom_boxplot() +
-  scale_y_continuous(trans = "log10") +
-  stat_compare_means(comparisons = list(c("Control", "Infertile")),
-                     label = "p.format", 
-                     method = "wilcox.test",
-                     test.args = list(alternative = "two.sided", 
-                                      exact = FALSE, 
-                                      conf.level = 0.95))+
-  labs(y = "Log(CFU) in 300ul seminal fluid", title = "Estimated CFU of seminal microbiome")+
-  theme_classic()
-
 ggboxplot(metadata5, x = "Fertility", y = "CFU", color = "Fertility", 
-          add = "jitter", ylab = "CFU in 300ul seminal fluid ",
+          add = "jitter", ylab = "Log10(CFU in 300ul seminal fluid)",
           title = "Estimated CFU of seminal microbiome") +
+  scale_y_continuous(trans = "log10") +
   stat_compare_means(comparisons = list(c("Control", "Infertile")), label = "p.signif",
                      method = "wilcox.test", 
                      size = 4, vjust = -0.5)
-
 
 # Group G1 G2 G3 comparison of CFU
 ggplot(data = metadata5, aes(x = Group, y = CFU, fill = Group)) +
