@@ -5,7 +5,7 @@ This analysis is divided into 2 parts:
 Part 1 - Raw sequences were analyzed using https://github.com/biofuture/microbiome_singulairty_version
 
 Part 2 - The output from Part 1 were further analyzed using Rstudio
-
+---------------------------------------------------------------------------------
 Part 1:
 
 
