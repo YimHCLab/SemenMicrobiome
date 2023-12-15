@@ -47,16 +47,20 @@ ggboxplot(metadata6, x = "Fertility", y = "CFU", color = "Fertility",
                      size = 4, vjust = -0.5)
 
 # Group G1 G2 G3 comparison of CFU
-ggplot(data = metadata5, aes(x = Group, y = CFU, fill = Group)) +
-  geom_boxplot() +
-  scale_y_continuous(trans = "log10") +
-  geom_signif(comparisons = list(c("G1", "G2"), c("G2", "G3"), c("G1", "G3")),
-              map_signif_level = TRUE, textsize = 4) +
-  labs(y = "Log(CFU) in 300ul seminal fluid", title = "Estimated CFU of seminal microbiome")+
-  theme_classic()
 
-# Perform pairwise comparisons using Dunn's test
-dunn.test::dunn.test(x = metadata5$CFU, g = metadata5$Group, method = "bonferroni")
+metadata6$Group <- factor(metadata6$Group, levels = c("G1", "G2", "G3"))
+metadata6$logCFU <- log10(metadata6$CFU)
+
+library(rstatix)  
+stat.test <- dunn_test(logCFU ~ Group, data = metadata6)
+
+ggboxplot(metadata6, x = "Group", y = "logCFU", color = "Group", 
+          add = "jitter", ylab = "Log10(CFU in 300ul seminal fluid)",
+          title = "Estimated CFU of seminal microbiome") + 
+  stat_pvalue_manual(
+    stat.test, label = "p.adj.signif",
+     y.position = c(7.5, 7, 8)) 
+
 
 #Import data ----
 ##import data from QIIM2 output in the hf_diver folder, that is after host decontamination 
