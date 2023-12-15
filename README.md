@@ -15,7 +15,7 @@ Part 2 - The output from Part 1 was further analyzed using Rstudio
 
 R scripts for Decontamination, Quantitative Microbiome Profiling (QMP) and Mediation Analyses
 
-Output files from QIIME2 including table-normalised.qza, rooted-tree.qza, and taxonomy.qza were run through the following R Scripts in the following order:
+Output files from QIIME2 including table-normalized.qza, rooted-tree.qza, and taxonomy.qza were run through the following R Scripts in the following order:
 
 1. Decontam.R
 2. QMP_Microeco_analysis.R
