@@ -85,5 +85,29 @@ perl /home/applications/mima/mima_diversity-basic-statistic.pl \
 singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && sh beta-diversity-commands.sh '
 
 
+#Installation of 16S copy number normalisation plugin into QIIME2
+
+https://forum.qiime2.org/t/q2-gcn-norm-plugin-for-normalizing-sequences-by-16s-rrna-gene-copy-number/12715
+
+# Add the jiungwenchen channel
+conda config --add channels jiungwenchen
+
+# Update conda to the latest version
+conda update -n base -c defaults conda
+conda install -c jiungwenchen q2-gcn-norm
+
+#Perform 16S rRNA copy number correction
+
+qiime gcn-norm copy-num-normalize \
+
+  --i-table table.qza \
+
+  --i-taxonomy taxonomy.qza \
+
+  --o-gcn-norm-table table-normalized.qza
+
+# use table-normalized.qza for the absolute quantification
+
+
 
 
