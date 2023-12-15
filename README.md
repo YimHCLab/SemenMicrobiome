@@ -5,7 +5,7 @@ This analysis is divided into 2 parts:
 
 Part 1 - Raw sequences Analysis using QIIME2
 ------------------------------------------------------------------------------------------------------
-The pipeline for analysing the raw sequences could be found at https://github.com/biofuture/microbiome_singulairty_version
+The pipeline for analysing the raw sequences can be found at https://github.com/biofuture/microbiome_singulairty_version
 
 Linux Scripts could be found in file:
 
