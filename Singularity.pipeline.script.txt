@@ -1,0 +1,89 @@
+#Copied all fq.gz files into rawfastq folder with 3 negative controls: S1, S13 and SNTC
+
+cat *_R1*.gz > all_r1.fq  #combine all files into 1 file
+
+cat *_R2*.gz > all_r2.fq #combine all files into 1 file 
+
+mv all_r1.fq all_r1.fq.gz   #they are zip file, so change the file name to .gz
+
+gunzip all_r1.fq.gz  #unzip file 
+
+mv all_r2.fq all_r2.fq.gz 
+
+gunzip all_r2.fq.gz 
+
+singularity exec /data/bio/workshop/mrcmicrobiome.sif bash -c 'fastp -i all_r1.fq -I all_r2.fq -o /srv/scratch/mrcbio/howard/EllisFok/hf_qc/ALL_R1.fq -O /srv/scratch/mrcbio/howard/EllisFok/hf_qc/ALL_R2.fq -h /srv/scratch/mrcbio/howard/EllisFok/hf_qc/fastp.outreport.html'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path hf_d.manifest --output-path demux.qza --input-format PairedEndFastqManifestPhred33'
+----------------------------------------------------------
+#Running dada2 within qiime2 to perform quality control
+----------------------------------------------------------
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+  qiime dada2 denoise-paired \
+    --i-demultiplexed-seqs demux.qza \
+    --p-trunc-len-f 0 \
+    --p-trunc-len-r 0 \
+    --p-trim-left-f 4 \
+    --p-trim-left-r 4 \
+    --p-n-threads 1 \
+    --o-representative-sequences rep-seqs.qza \
+    --o-table table.qza --o-denoising-stats stats-dada2.qza'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+qiime tools export \
+ --input-path  stats-dada2.qza \
+ --output-path stats-dada2' 
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+qiime tools export \
+ --input-path  rep-seqs.qza \
+ --output-path rep-seqs'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+qiime tools export \
+ --input-path  table.qza \
+ --output-path table'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+biom convert -i table/feature-table.biom -o table/feature-table.txt --to-tsv'
+
+----------------------------------------------------------
+#Host contamination removal
+----------------------------------------------------------
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime feature-table filter-features --i-table table.qza --m-metadata-file hf_host_decontamination/metadata.table.txt  --p-where "SIDS==1" --p-exclude-ids --o-filtered-table hf_host_decontamination/table.qza'
+
+perl -e 'open(I, "hf_host_decontamination/metadata.table.txt"); <I>;while(<I>){ chomp; @m = split /\t/; $hash{$m[0]} =1;  }   open(II, "hf_host_decontamination/rep-seqsold/dna-sequences.fasta"); while($id = <II>){ $seq = <II>; chomp($id); $id =~ s/^>//; if(exists $hash{$id}){}else{print ">$id\n$seq";} }  ' > hf_host_decontamination/filtered_dnaseqs.fasta
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime tools import --type 'FeatureData[Sequence]' --input-path hf_host_decontamination/filtered_dnaseqs.fasta --output-path hf_host_decontamination/rep-seqs.qza'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 &&  qiime tools export --input-path hf_host_decontamination/table.qza --output-path hf_host_decontamination/otable'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && biom convert -i hf_host_decontamination/otable/feature-table.biom -o hf_host_decontamination/otable/feature.txt --to-tsv'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime feature-table summarize --i-table hf_host_decontamination/table.qza  --o-visualization  hf_host_decontamination/tablesummarize.qzv'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime tools export --input-path  hf_host_decontamination/tablesummarize.qzv --output-path hf_host_decontamination/otablesummarize'
+
+----------------------------------------------------------
+#Taxonomy annotation and diversity analysis (cut-off at 3000 features; including all negative controls)
+----------------------------------------------------------
+mkdir hf_diver
+
+cp /srv/scratch/mrcbio/howard/EllisFok/hf_qc/hf_host_decontamination/rep-seqs.qza hf_diver/
+
+cp /srv/scratch/mrcbio/howard/EllisFok/hf_qc/hf_host_decontamination/table.qza hf_diver/
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+perl /home/applications/mima/mima_diversity-basic-statistic.pl \
+ -m metadata.txt \
+ -c /data/bio/workshop/db/gg-v3v4-classifier.qza \
+ -n 1 \
+ -d 2900 \
+ -o hf_diver'
+
+singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && sh beta-diversity-commands.sh '
+
+
+
+
