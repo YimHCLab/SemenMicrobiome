@@ -64,7 +64,7 @@ ggboxplot(metadata6, x = "Group", y = "logCFU", color = "Group",
 #Import data ----
 ##import data from QIIM2 output in the hf_diver folder, that is after host decontamination 
 #and phylogenetic tree construction
-#table is not normalised with sequencing depth
+#table was not normalised with sequencing depth was normalised by 16S rRNA copy number from the QIIME2 plugin in Part 1
 
 Oct23_16S <-qza_to_phyloseq(
   features="table-normalized.qza",
