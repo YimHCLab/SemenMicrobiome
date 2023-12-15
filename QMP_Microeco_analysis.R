@@ -522,7 +522,7 @@ g5$res_diff
 
 library(writexl)
 
-write_xlsx(g5.table,"alpha_diversity_anova.xlsx")
+write_xlsx(g5$res_diff,"alpha_diversity_anova.xlsx")
 
 #https://myaseen208.com/agricolae/articles/MultipleComparisons.html
 #Means with the same letter are not significantly different.
