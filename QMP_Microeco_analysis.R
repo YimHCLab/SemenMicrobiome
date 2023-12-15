@@ -691,42 +691,6 @@ g6.wei_unifrac$res_manova
 g6.wei_unifrac$cal_betadisper()
 g6.wei_unifrac$res_betadisper
 
-##Network====
-###Co-abundance----
-
-# Spearman correlation using WGCNA package
-
-library(WGCNA)
-###G1====
-g9.G1 <- trans_network$new(dataset = G1, 
-                           cor_method = "spearman",
-                           use_WGCNA_pearson_spearman = TRUE, filter_thres = 0.0001,
-                           add_taxa_name = c("Phylum", "Genus"))
-
-
-# construct network; require igraph package
-g9.G1$cal_network(COR_p_thres = 0.01, COR_optimization = TRUE, complete_na = TRUE)
-# use arbitrary coefficient threshold to contruct network
-g9.G1$cal_network(COR_p_thres = 0.01, COR_cut = 0.7, complete_na = TRUE)
-# return t9$res_network
-
-# # modularity for this undirected network with igraph cluster_fast_greedy function
-g9.G1$cal_module(method = "cluster_fast_greedy")
-
-g9.G1$cal_module()
-nodes <- V(g9.G1$res_network)$name
-V(g9.G1$res_network)$RelativeAbundance <- apply(g9.G1$data_abund[, nodes], 2, sum) * 100/sum(dataset$otu_table)
-g9.G1$res_network
-g9.G1$save_network("network_G1.gexf")
-
-# save network
-# open network.gexf file using Gephi(https://gephi.org/)
-# require rgexf package
-g9.G1$save_network(filepath = "network_G1.gexf")
-
-# calculate network attributes
-g9.G1$cal_network_attr()
-g9.G1$res_network_attr                                      
 
 ##Subgrouping the dataset----
 ###G1----
