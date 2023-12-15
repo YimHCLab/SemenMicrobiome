@@ -37,11 +37,11 @@ qqline(metadata5$CFU)
 metadata6 <- metadata5
 
 metadata6$Fertility <- factor(metadata6$Fertility, levels = c("Control", "Infertile"))
+metadata6$logCFU <- log10(metadata6$CFU)
 
-ggboxplot(metadata6, x = "Fertility", y = "CFU", color = "Fertility", 
+ggboxplot(metadata6, x = "Fertility", y = "logCFU", color = "Fertility", 
           add = "jitter", ylab = "Log10(CFU in 300ul seminal fluid)",
           title = "Estimated CFU of seminal microbiome") +
-  scale_y_continuous(trans = "log10") +
   stat_compare_means(comparisons = list(c("Control", "Infertile")), label = "p.signif",
                      method = "wilcox.test", 
                      size = 4, vjust = -0.5)
@@ -49,7 +49,6 @@ ggboxplot(metadata6, x = "Fertility", y = "CFU", color = "Fertility",
 # Group G1 G2 G3 comparison of CFU
 
 metadata6$Group <- factor(metadata6$Group, levels = c("G1", "G2", "G3"))
-metadata6$logCFU <- log10(metadata6$CFU)
 
 library(rstatix)  
 stat.test <- dunn_test(logCFU ~ Group, data = metadata6)
