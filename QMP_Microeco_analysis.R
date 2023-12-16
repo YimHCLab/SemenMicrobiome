@@ -500,6 +500,15 @@ class(Oct23_16S.056.a.micro2.c$beta_diversity)
 # save dataset$beta_diversity to a directory
 Oct23_16S.056.a.micro2.c$save_betadiv(dirpath = "beta_diversity")
 
+##use 10 Phyla with the highest abundance====
+g1.phyla <- trans_abund$new(dataset = Oct23_16S.056.a.micro2.c, taxrank = "Phylum",
+                      ntaxa = 10)
+
+g1.phyla$plot_heatmap(facet = "Group", 
+                xtext_keep = FALSE, withmargin = FALSE,
+                color_values = rev(RColorBrewer::brewer.pal(n = 10, name = "RdYlBu")))+
+  labs(fill = "CFU")
+                                      
 ##show 40 taxa at Genus level====
 g2 <- trans_abund$new(dataset = Oct23_16S.056.a.micro2.c, 
                       taxrank = "Genus", ntaxa = 40)
