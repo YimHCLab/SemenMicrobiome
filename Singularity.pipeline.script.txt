@@ -14,7 +14,11 @@ gunzip all_r2.fq.gz
 
 mkdir hf_qc
 
-singularity exec /data/bio/workshop/mrcmicrobiome.sif bash -c 'fastp -i all_r1.fq -I all_r2.fq -o /srv/scratch/mrcbio/howard/EllisFok/hf_qc/ALL_R1.fq -O /srv/scratch/mrcbio/howard/EllisFok/hf_qc/ALL_R2.fq -h /srv/scratch/mrcbio/howard/EllisFok/hf_qc/fastp.outreport.html'
+#Generate Manifest
+
+singularity exec --cleanenv /home/Image/mrcmicrobiome.sif bash -c 'perl  /home/Image/mima_prepare_manifest_and_qc.pl /srv/scratch/mrcbio/howard/EllisFok/rawfastq/ /srv/scratch/mrcbio/howard/EllisFok/Analysis_2023/hf_d.manifest all_r1.fq all_r2.fq /srv/scratch/mrcbio/howard/EllisFok/Analysis_2023/hf_qc 1 /home/z3520673/Image/mrcmicrobiome.sif'
+
+singularity exec /home/Image/mrcmicrobiome.sif bash -c 'fastp -i all_r1.fq -I all_r2.fq -o /srv/scratch/mrcbio/howard/EllisFok/Analysis_2023/hf_qc/ALL_R1.fq -O /srv/scratch/mrcbio/howard/EllisFok/Analysis_2023/hf_qc/ALL_R2.fq -h /srv/scratch/mrcbio/howard/EllisFok/Analysis_2023/hf_qc/fastp.outreport.html'
 
 singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path hf_d.manifest --output-path demux.qza --input-format PairedEndFastqManifestPhred33'
 ----------------------------------------------------------
