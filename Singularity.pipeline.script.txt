@@ -38,7 +38,7 @@ singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8
     --o-table table.qza --o-denoising-stats stats-dada2.qza'
 
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+singularity exec /home/Image/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
 qiime tools export \
  --input-path  stats-dada2.qza \
  --output-path stats-dada2' 
