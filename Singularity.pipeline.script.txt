@@ -121,7 +121,7 @@ qiime gcn-norm copy-num-normalize \
   --i-taxonomy taxonomy.qza \
   --o-gcn-norm-table table-normalized.qza
 
-# use table-normalized.qza for the absolute quantification
+# use table-normalized.qza for part 2 analysis
 
 
 
