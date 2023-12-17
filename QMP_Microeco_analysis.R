@@ -32,7 +32,7 @@ Oct23_16S.f.con.micro1 <- Oct23_16S.f.con.micro$merge_samples(use_group = "Ferti
 t3 <- trans_venn$new(Oct23_16S.f.con.micro1, ratio ="seqratio")
 t3$plot_venn()
 
-#this decided whether no feature from negative control present in samples
+#this decided whether no feature from the negative control present in the samples
 
 ##Perform absolute quantification and rarefaction (QMP)----
 #https://github.com/raeslab/QMP/blob/master/QMP.R
@@ -48,15 +48,6 @@ t3 <- trans_venn$new(Oct23_16S.f.con.micro1, ratio ="seqratio")
 t3$plot_venn()
 
 #this decided whether no feature from negative control present in samples
-
-##Perform absolute quantification and rarefaction (QMP)----
-#https://github.com/raeslab/QMP/blob/master/QMP.R
-
-#removing 2 negative controls from phyloseq object
-Oct23_16S.f.noncontam056
-
-Oct23_16S.056 <- subset_samples(Oct23_16S.f.noncontam056, sample_names(Oct23_16S.f.noncontam056) != "SNTC")
-Oct23_16S.056 <- subset_samples(Oct23_16S.056, sample_names(Oct23_16S.056) != "S1")
 
 ###Function for QMP----
 rarefy_even_sampling_depth <- function(cnv_corrected_abundance_table, cell_counts_table) 
