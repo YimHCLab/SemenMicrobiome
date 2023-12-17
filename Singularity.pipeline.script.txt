@@ -35,25 +35,26 @@ singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8
     --p-trim-left-r 4 \
     --p-n-threads 1 \
     --o-representative-sequences rep-seqs.qza \
-    --o-table table.qza --o-denoising-stats stats-dada2.qza'
+    --o-table table.qza \
+    --o-denoising-stats stats-dada2.qza'
 
 
-singularity exec /home/Image/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && \
 qiime tools export \
  --input-path  stats-dada2.qza \
  --output-path stats-dada2' 
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && \
 qiime tools export \
  --input-path  rep-seqs.qza \
  --output-path rep-seqs'
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && \
 qiime tools export \
  --input-path  table.qza \
  --output-path table'
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && \
 biom convert -i table/feature-table.biom -o table/feature-table.txt --to-tsv'
 
 ----------------------------------------------------------
