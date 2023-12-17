@@ -63,19 +63,25 @@ biom convert -i table/feature-table.biom -o table/feature-table.txt --to-tsv'
 
 singularity exec  /home/Image/mrcmicrobiome.sif  bash -c '. activate qiime2-2020.8 && perl  /home/Image/mima_decontaminate_host.pl rep-seqs.qza table.qza hf_host_decontamination /srv/scratch/mrcbio/humangenome/humangenome 1'
 
-singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && qiime feature-table filter-features --i-table table.qza --m-metadata-file hf_host_decontamination/metadata.table.txt  --p-where "SIDS==1" --p-exclude-ids --o-filtered-table hf_host_decontamination/table.qza'
+singularity exec  /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && qiime tools export --input-path rep-seqs.qza --output-path hf_host_decontamination/rep-seqsold'
+
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && bowtie2 -x /srv/scratch/mrcbio/humangenome/humangenome -U hf_host_decontamination/rep-seqsold/dna-sequences.fasta -f --sensitive-local  -p 1 --un unaligned_bowtie2.fasta --al hf_host_decontamination/rep-seqsold/matched_dnaseq.fasta > hf_host_decontamination/rep-seqsold/align-hostgenome.sam.txt'
+
+grep ">" hf_host_decontamination/rep-seqsold/matched_dnaseq.fasta  | perl -ne 'chomp; s/^>//; print "$_\t1\n";' > hf_host_decontamination/metadata.table.txt ; echo  -e "feature-id\tSIDs"  | cat - hf_host_decontamination/metadata.table.txt > temp.out | mv temp.out hf_host_decontamination/metadata.table.txt
+
+singularity exec  /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && qiime feature-table filter-features --i-table table.qza --m-metadata-file hf_host_decontamination/metadata.table.txt  --p-where "SIDS==1" --p-exclude-ids --o-filtered-table hf_host_decontamination/table.qza'
 
 perl -e 'open(I, "hf_host_decontamination/metadata.table.txt"); <I>;while(<I>){ chomp; @m = split /\t/; $hash{$m[0]} =1;  }   open(II, "hf_host_decontamination/rep-seqsold/dna-sequences.fasta"); while($id = <II>){ $seq = <II>; chomp($id); $id =~ s/^>//; if(exists $hash{$id}){}else{print ">$id\n$seq";} }  ' > hf_host_decontamination/filtered_dnaseqs.fasta
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime tools import --type 'FeatureData[Sequence]' --input-path hf_host_decontamination/filtered_dnaseqs.fasta --output-path hf_host_decontamination/rep-seqs.qza'
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && qiime tools import --type 'FeatureData[Sequence]' --input-path hf_host_decontamination/filtered_dnaseqs.fasta --output-path hf_host_decontamination/rep-seqs.qza'
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 &&  qiime tools export --input-path hf_host_decontamination/table.qza --output-path hf_host_decontamination/otable'
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 &&  qiime tools export --input-path hf_host_decontamination/table.qza --output-path hf_host_decontamination/otable'
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && biom convert -i hf_host_decontamination/otable/feature-table.biom -o hf_host_decontamination/otable/feature.txt --to-tsv'
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && biom convert -i hf_host_decontamination/otable/feature-table.biom -o hf_host_decontamination/otable/feature.txt --to-tsv'
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime feature-table summarize --i-table hf_host_decontamination/table.qza  --o-visualization  hf_host_decontamination/tablesummarize.qzv'
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && qiime feature-table summarize --i-table hf_host_decontamination/table.qza  --o-visualization  hf_host_decontamination/tablesummarize.qzv'
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime tools export --input-path  hf_host_decontamination/tablesummarize.qzv --output-path hf_host_decontamination/otablesummarize'
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && qiime tools export --input-path  hf_host_decontamination/tablesummarize.qzv --output-path hf_host_decontamination/otablesummarize'
 
 ----------------------------------------------------------
 #Taxonomy annotation and diversity analysis (cut-off at 3000 features; including all negative controls)
