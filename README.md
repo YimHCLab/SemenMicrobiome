@@ -5,7 +5,7 @@ This analysis is divided into 2 parts:
 
 Part 1 - Raw sequences Analysis using QIIME2
 ------------------------------------------------------------------------------------------------------
-The pipeline for analysing the raw sequences can be found at https://github.com/biofuture/microbiome_singulairty_version and https://figshare.com/articles/software/MRC_microbiome_16S_analysis_pipeline_singularity_version/24784080
+The pipeline for analysing the raw sequences can be found at  https://github.com/biofuture/microbiome_singularity_version and https://figshare.com/articles/software/MRC_microbiome_16S_analysis_pipeline_singularity_version/24784080
 
 Linux Scripts for performing the singularity analysis are in the file Singularity.pipeline.script.txt
 
