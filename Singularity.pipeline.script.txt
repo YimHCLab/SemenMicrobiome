@@ -61,7 +61,9 @@ biom convert -i table/feature-table.biom -o table/feature-table.txt --to-tsv'
 #Host contamination removal
 ----------------------------------------------------------
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && qiime feature-table filter-features --i-table table.qza --m-metadata-file hf_host_decontamination/metadata.table.txt  --p-where "SIDS==1" --p-exclude-ids --o-filtered-table hf_host_decontamination/table.qza'
+singularity exec  /home/Image/mrcmicrobiome.sif  bash -c '. activate qiime2-2020.8 && perl  /home/Image/mima_decontaminate_host.pl rep-seqs.qza table.qza hf_host_decontamination /srv/scratch/mrcbio/humangenome/humangenome 1'
+
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && qiime feature-table filter-features --i-table table.qza --m-metadata-file hf_host_decontamination/metadata.table.txt  --p-where "SIDS==1" --p-exclude-ids --o-filtered-table hf_host_decontamination/table.qza'
 
 perl -e 'open(I, "hf_host_decontamination/metadata.table.txt"); <I>;while(<I>){ chomp; @m = split /\t/; $hash{$m[0]} =1;  }   open(II, "hf_host_decontamination/rep-seqsold/dna-sequences.fasta"); while($id = <II>){ $seq = <II>; chomp($id); $id =~ s/^>//; if(exists $hash{$id}){}else{print ">$id\n$seq";} }  ' > hf_host_decontamination/filtered_dnaseqs.fasta
 
