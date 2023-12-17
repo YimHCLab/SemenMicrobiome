@@ -88,19 +88,19 @@ singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8
 ----------------------------------------------------------
 mkdir hf_diver
 
-cp /srv/scratch/mrcbio/howard/EllisFok/hf_qc/hf_host_decontamination/rep-seqs.qza hf_diver/
+cp hf_host_decontamination/rep-seqs.qza hf_diver/
 
-cp /srv/scratch/mrcbio/howard/EllisFok/hf_qc/hf_host_decontamination/table.qza hf_diver/
+cp hf_host_decontamination/table.qza hf_diver/
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && \
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && \
 perl /home/applications/mima/mima_diversity-basic-statistic.pl \
- -m metadata.txt \
+ -m metadata3.txt \
  -c /data/bio/workshop/db/gg-v3v4-classifier.qza \
  -n 1 \
  -d 2900 \
  -o hf_diver'
 
-singularity exec /srv/scratch/mrcbio/workshop/mrcmicrobiome16s bash -c '. activate qiime2-2020.8 && sh beta-diversity-commands.sh '
+singularity exec /home/Image/mrcmicrobiome.sif bash -c '. activate qiime2-2020.8 && sh beta-diversity-commands.sh '
 
 
 #Installation of 16S copy number normalisation plugin into QIIME2
@@ -117,11 +117,8 @@ conda install -c jiungwenchen q2-gcn-norm
 #Perform 16S rRNA copy number correction
 
 qiime gcn-norm copy-num-normalize \
-
   --i-table table.qza \
-
   --i-taxonomy taxonomy.qza \
-
   --o-gcn-norm-table table-normalized.qza
 
 # use table-normalized.qza for the absolute quantification
